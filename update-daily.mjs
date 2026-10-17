@@ -34,7 +34,7 @@ async function runScript(script, label) {
         resolve(stdout);
       } else {
         logLine(`✗ ${label} ERRO (código ${code})`);
-        reject(new Error(\`\${label} falhou\`));
+        reject(new Error(`${label} falhou`));
       }
     });
   });
@@ -68,10 +68,10 @@ async function main() {
     logLine('═══════════════════════════════════════════');
     logLine('✗ ERRO - Execução abortada');
     logLine('═══════════════════════════════════════════');
-    logLine(\`Motivo: \${e.message}\`);
+    logLine(`Motivo: ${e.message}`);
     process.exit(1);
   } finally {
-    writeFileSync(LOG_FILE, log.join('\\n'), 'utf8');
+    writeFileSync(LOG_FILE, log.join('\n'), 'utf8');
   }
 }
 
